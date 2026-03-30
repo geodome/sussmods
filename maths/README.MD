@@ -1,1 +1,0 @@
-This is just a collection of programs I had written to explore mathematics
