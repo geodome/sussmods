@@ -22,3 +22,7 @@ MTH109 Calculus introduces students to the study of limits, continuity, differen
 * Integration by Partial Fractions
 * Area between curves
 * Volume of solids of revolution
+
+## Additional Practice
+
+If you require additional practice for examination preparation, look up the past year papers for MTH107 and MTH108.
