@@ -68,17 +68,18 @@ A. def fly(self): return "Flapping Wings"
 """
 
 # Question 8
+# Python doesn't support traditional method overloading which distinguishes each
+# overloaded method by its parameteric signature. 2 solutions are presented here.
 
 class Operation:
+    def multiply(self, x:int|float, y:int|float, z:int|float=1) -> int|float:
+        return x*y*z
+class Operation:
+
     def multiply(self, *args:list[int|float]) -> int|float:
         """
         This implementation accepts at least 2 multiplication terms to compute the
-        multiplication.
-
-        Python doesn't support traditional method overloading which distinguishes each
-        overloaded method by its parameteric signature. 
-        
-        Instead, the variadic *args is used to accept multiple parameters to emulate overloading.
+        multiplication. The variadic *args is used to accept multiple parameters to emulate overloading.
         """
         if len(args) > 1:
             result = 1
@@ -219,7 +220,7 @@ class ShipmentTrackerGUI:
         win.mainloop()
     
     def on_select(self, event:tk.Event) -> None:
-        selected_index = self.__listbox.curselection()
+        selected_index: tuple[int] = self.__listbox.curselection()
         if selected_index:
             # get the shipment object from the list
             shipment = self.__shipment_list[selected_index[0]]
