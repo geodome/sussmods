@@ -218,9 +218,8 @@ class ShipmentTrackerGUI:
 
         win.mainloop()
     
-    def on_select(self, event) -> None:
+    def on_select(self, event:tk.Event) -> None:
         selected_index = self.__listbox.curselection()
-        print(selected_index)
         if selected_index:
             # get the shipment object from the list
             shipment = self.__shipment_list[selected_index[0]]
