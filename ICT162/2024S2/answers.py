@@ -188,7 +188,7 @@ class Contact:
         return self.__name
     
     def checkNumber(self) -> bool:
-        if self.__number % 100000000 != self.__number:
+        if 10000000 <= self.__number <= 99999999:
             raise InvalidContactException("Contact Number must contain exactly 8 digits")
         if self.__number // 10000000 not in [6,8,9]:
             raise InvalidContactException("Contact number must start with a 6, 8, or 9")
