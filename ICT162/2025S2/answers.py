@@ -74,12 +74,13 @@ A. def fly(self): return "Flapping Wings"
 class Operation:
     def multiply(self, x:int|float, y:int|float, z:int|float=1) -> int|float:
         return x*y*z
+    
 class Operation:
-
     def multiply(self, *args:list[int|float]) -> int|float:
         """
         This implementation accepts at least 2 multiplication terms to compute the
-        multiplication. The variadic *args is used to accept multiple parameters to emulate overloading.
+        multiplication. The variadic *args is used to accept multiple parameters to 
+        emulate overloading.
         """
         if len(args) > 1:
             result = 1
