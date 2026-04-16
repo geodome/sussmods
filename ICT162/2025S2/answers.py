@@ -225,8 +225,12 @@ class ShipmentTrackerGUI:
             # get the shipment object from the list
             shipment = self.__shipment_list[selected_index[0]]
             # missing line for 11b
-            date, status = shipment.get_status_history()[-1]
-            self.__status_label.config(text=f"({date}, {status})")
+            try:
+                date, status = shipment.get_status_history()[-1]
+            except IndexError:
+                self.__status_label.config("Current Status: N/A")
+            else:
+                self.__status_label.config(text=f"Current Status: ({date}, {status})")
 
 def main():
     shipment_list: list[Shipment] = [
