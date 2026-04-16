@@ -224,7 +224,7 @@ class ShipmentTrackerGUI:
             # get the shipment object from the list
             shipment = self.__shipment_list[selected_index[0]]
             # missing line for 11b
-            # retrive the latest status for the selected shipment
+            # display the latest status of the selected shipment
             try:
                 date, status = shipment.get_status_history()[-1]
             except IndexError:
