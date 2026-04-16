@@ -94,7 +94,7 @@ from datetime import datetime
 
 class Tracking:
     """
-    Required for Question 10
+    Provided by exam paper for Question 10
     """
     def __init__(self) -> None:
         self.__history: list[tuple[str,str]] = []
@@ -110,7 +110,7 @@ class Tracking:
 
 class Shipment(ABC):
     """
-    Required by Q9a
+    Answer for Q9a
     """
 
     _base_cost = 1.5
@@ -129,14 +129,14 @@ class Shipment(ABC):
     @property
     def destination(self) -> str:
         """
-        added for Q11
+        added for coherence with Q11
         """
         return self.__destination
     
     @property
     def id(self) -> str:
         """
-        added for Q11
+        added for coherence with Q11
         """
         return self.__id 
     
@@ -213,7 +213,7 @@ class ShipmentTrackerGUI:
         self.__listbox.pack(side=tk.TOP)
         self.__status_label.pack(side=tk.TOP)
 
-        # added event handler for listbox for 11b
+        # added event handler for listbox for coherenve with 11b
         self.__listbox.bind('<<ListboxSelect>>', self.on_select)
 
         win.mainloop()
