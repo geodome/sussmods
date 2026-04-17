@@ -239,13 +239,14 @@ class ShipmentTrackerGUI:
             # missing line for 11b
             # display the latest status of the selected shipment
             try:
-                date, status = shipment.get_status_history()[-1]
+                history = shipment.get_status_history()
             except Exception as e:
                 self.__status_label.config(text=f"Current Status for ID {shipment.id}: {e}")
             else:
+                date, time = history[-1]
                 self.__status_label.config(text=f"Current Status for ID {shipment.id}: ({date}, {status})")
 
-def main()
+def main():
     """
     Code provideed by Q11
     """
