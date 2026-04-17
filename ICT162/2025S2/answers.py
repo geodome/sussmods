@@ -241,11 +241,11 @@ class ShipmentTrackerGUI:
             try:
                 date, status = shipment.get_status_history()[-1]
             except IndexError:
-                self.__status_label.config("Current Status: N/A")
+                self.__status_label.config(text=f"Current Status for ID {shipment.id}: No available history")
             else:
-                self.__status_label.config(text=f"Current Status: ({date}, {status})")
+                self.__status_label.config(text=f"Current Status for ID {shipment.id}: ({date}, {status})")
 
-def main():
+def main()
     """
     Code provideed by Q11
     """
