@@ -240,14 +240,14 @@ from tkinter import scrolledtext
 
 class GUI:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._win = tk.Tk()
         self._win.resizable(True,True)
         self._win.title("Celsius to Fahrenheit")
         self.create_widgets()
         self._win.mainloop()
 
-    def create_widgets(self):
+    def create_widgets(self) -> ModuleNotFoundError:
         """
         required by 4a
         """
@@ -263,7 +263,7 @@ class GUI:
         self._scrol_stxt.config(state=tk.DISABLED)
         convert_btn.grid(row=2,column=1,columnspan=2)
 
-    def convert(self):
+    def convert(self) -> None:
         """
         required by 4b
         """
