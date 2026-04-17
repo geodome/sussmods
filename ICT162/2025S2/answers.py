@@ -240,8 +240,8 @@ class ShipmentTrackerGUI:
             # display the latest status of the selected shipment
             try:
                 date, status = shipment.get_status_history()[-1]
-            except IndexError:
-                self.__status_label.config(text=f"Current Status for ID {shipment.id}: No available history")
+            except Exception as e:
+                self.__status_label.config(text=f"Current Status for ID {shipment.id}: {e}")
             else:
                 self.__status_label.config(text=f"Current Status for ID {shipment.id}: ({date}, {status})")
 
