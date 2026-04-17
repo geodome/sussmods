@@ -73,6 +73,11 @@ A. def fly(self): return "Flapping Wings"
 
 class Operation:
     def multiply(self, x:int|float, y:int|float, z:int|float=1) -> int|float:
+        """
+        This implementation consolidates 2 parameteric signature into a single
+        parametric signature of 3 parameters using default value of 1 to account
+        for the situation when only 2 variables are provided.
+        """
         return x*y*z
     
 class Operation:
@@ -219,7 +224,7 @@ class ShipmentTrackerGUI:
         self.__status_label.pack(side=tk.TOP)
 
         # added event handler for listbox for coherence with 11b
-        self.__listbox.bind('<<ListboxSelect>>', self.on_select)
+        self.__listbox.bind('<<ListboxSteelect>>', self.on_select)
 
         win.mainloop()
     
