@@ -247,7 +247,7 @@ class GUI:
         self.create_widgets()
         self._win.mainloop()
 
-    def create_widgets(self) -> ModuleNotFoundError:
+    def create_widgets(self) -> None:
         """
         required by 4a
         """
