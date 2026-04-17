@@ -201,6 +201,9 @@ import tkinter as tk
 
 class ShipmentTrackerGUI:
     def __init__(self, shipment_list:list[Shipment]):
+        """
+        Code provided by exam question.
+        """
         win = tk.Tk()
         win.title("Shipment Tracker")
         self.__shipment_list = shipment_list
@@ -215,12 +218,15 @@ class ShipmentTrackerGUI:
         self.__listbox.pack(side=tk.TOP)
         self.__status_label.pack(side=tk.TOP)
 
-        # added event handler for listbox for coherenve with 11b
+        # added event handler for listbox for coherence with 11b
         self.__listbox.bind('<<ListboxSelect>>', self.on_select)
 
         win.mainloop()
     
     def on_select(self, event:tk.Event) -> None:
+        """
+        Required for 11b
+        """
         selected_index: tuple[int] = self.__listbox.curselection()
         if selected_index:
             # get the shipment object from the list
@@ -235,6 +241,9 @@ class ShipmentTrackerGUI:
                 self.__status_label.config(text=f"Current Status: ({date}, {status})")
 
 def main():
+    """
+    Code provideed by Q11
+    """
     shipment_list: list[Shipment] = [
         PriorityShipment("102", 5, "San Francisco"),
         RefrigeratedShipment("103", 8, "Chicago")
