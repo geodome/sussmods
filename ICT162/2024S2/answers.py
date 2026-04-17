@@ -251,22 +251,18 @@ class GUI:
         """
         required by 4a
         """
-        dataFrame = ttk.Frame(self._win)
-        dataFrame.pack(side=tk.TOP)
-
-        self._celsius = tk.StringVar()
-        celsius_lbl = ttk.Label(dataFrame, text="Celsius:")
-        celsius_lbl.grid(row=0,column=0)
-        self._celsius_Ety = ttk.Entry(dataFrame, width=5, textvariable=self._celsius)
-        self._celsius_Ety.grid(row=0,column=1,sticky="W")
-
-        convert_btn = ttk.Button(dataFrame, text="Convert", command=self.convert)
-        convert_btn.grid(row=1,column=1)
-
+        celsius_lbl = ttk.Label(self._win, text="Celsius:")
+        self._celsius_Ety = ttk.Entry(self._win, width=5)
+        convert_btn = ttk.Button(self._win, text="Convert", command=self.convert)
         self._scrol_stxt = scrolledtext.ScrolledText(self._win, width=38, height=5, wrap=tk.WORD)
-        self._scrol_stxt.pack(side=tk.TOP)
+
+        # missing code
+        celsius_lbl.grid(row=0,column=1)
+        self._celsius_Ety.grid(row=0,column=2,sticky="W")
+        self._scrol_stxt.grid(row=1,column=0,columnspan=4)
         self._scrol_stxt.config(state=tk.DISABLED)
-    
+        convert_btn.grid(row=2,column=1,columnspan=2)
+
     def convert(self):
         """
         required by 4b
@@ -274,7 +270,7 @@ class GUI:
         self._scrol_stxt.config(state=tk.NORMAL)
         self._scrol_stxt.delete("1.0", tk.END)
 
-        celsius = self._celsius.get().strip()
+        celsius = self._celsius_Ety.get()
         try:
             celsius_numeric = float(celsius)
         except ValueError:
