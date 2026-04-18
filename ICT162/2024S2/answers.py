@@ -188,7 +188,7 @@ class Contact:
         return self.__name
     
     def checkNumber(self) -> bool:
-        if 10000000 <= self.__number <= 99999999:
+        if not 10000000 <= self.__number <= 99999999:
             raise InvalidContactException("Contact Number must contain exactly 8 digits")
         if self.__number // 10000000 not in [6,8,9]:
             raise InvalidContactException("Contact number must start with a 6, 8, or 9")
@@ -206,13 +206,19 @@ class PhoneBook:
     
     def searchContact(self, name:str) -> Contact|None:
         for contact in self.__contacts:
-            if contact.name == name:
+            if contact.name.lower() == name.lower():
                 return contact
         return None 
     
+    def searchNumber(self, number:int) -> bool:
+        for contact in self.__contacts:
+            if contact.number == number:
+                return True 
+        return False
+    
     def addContact(self, name:str, number:int) -> bool:
         for contact in self.__contacts:
-            if name == contact.name:
+            if name.lower() == contact.name.lower():
                 raise InvalidContactException("Duplicate name")
             if number == contact.number:
                 raise InvalidContactException("Duplicate number")
@@ -220,8 +226,8 @@ class PhoneBook:
         return True
     
     def removeContact(self, name:str) -> bool:
-        for i in range(len(self.__contacts)-1,-1,-1):
-            if self.__contacts[i].name == name:
+        for i in range(len(self.__contacts)):
+            if self.__contacts[i].name.lower() == name.lower():
                 del self.__contact[i]
                 return True 
         return False 
@@ -231,7 +237,7 @@ class PhoneBook:
         for contact in sorted(self.__contacts, key=lambda x: x.name):
             s.append(str(contact))
         return "\n".join(s)
-
+    
 # Question 4
 
 import tkinter as tk 
@@ -249,7 +255,7 @@ class GUI:
 
     def create_widgets(self) -> None:
         """
-        required by 4a
+        required by 4as
         """
         celsius_lbl = ttk.Label(self._win, text="Celsius:")
         self._celsius_Ety = ttk.Entry(self._win, width=5)

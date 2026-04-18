@@ -224,9 +224,7 @@ class ShipmentTrackerGUI:
         self.__status_label.pack(side=tk.TOP)
 
         # added event handler for listbox for coherence with 11b
-        self.__listbox.bind('<<ListboxSteelect>>', self.on_select)
-
-        win.mainloop()
+        self.__listbox.bind('<<ListboxSelect>>', self.on_select)
     
     def on_select(self, event:tk.Event) -> None:
         """
@@ -243,7 +241,7 @@ class ShipmentTrackerGUI:
             except Exception as e:
                 self.__status_label.config(text=f"Current Status for ID {shipment.id}: {e}")
             else:
-                date, time = history[-1]
+                date, status = history[-1]
                 self.__status_label.config(text=f"Current Status for ID {shipment.id}: ({date}, {status})")
 
 def main():
@@ -260,3 +258,4 @@ def main():
     
     shipment_tracker = ShipmentTrackerGUI(shipment_list)
 
+main()
