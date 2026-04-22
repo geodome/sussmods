@@ -110,7 +110,7 @@ class CapitaCard(CapitaStar):
     
     def addStarDollars(self, amountSpent:float) -> None:
         if amountSpent > 10:
-            capped = min(int(self.__remainingCap). int(amountSpent))
+            capped = min(int(self.__remainingCap), int(amountSpent))
             uncapped = max(0, int(amountSpent - self.__remainingCap))
             self.__remainingCap = max(0, self.__remainingCap - amountSpent)
             self.__starDollars += CapitaCard._FACTOR*capped + uncapped 
