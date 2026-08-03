@@ -5,12 +5,15 @@ If you need tuition, feel free to contact me at maths_and_programming@outlook.sg
 # MTD321 Computer Graphics with Interaction
 
 ## Synopsis
+
 MTD321 Computer Graphics with Interactions introduces students to technologies and implementations 
 in computer graphics. Realistic rendering and representation of the physical world and its dynamics 
 is crucial for visual displays. In this course, students will learn and appreciate the intricacies 
 of computer graphics and the applications that facilitate the visual aspects of human-computer 
 interfaces. Students will also learn theoretical and practical skillsets that allow them to produce efficient codes with modern computer graphic libraries to create 2D and 3D scenes that involve 
 animation and interactions.
+
+This unit replaces MTD315 Computer Interactive Graphics.
 
 ### Level: 3
 ### Credit Units: 5
