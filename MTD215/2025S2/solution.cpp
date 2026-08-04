@@ -9,8 +9,8 @@ private:
     double x, y;
     double vx, vy;
     double ax, ay;
+    static int i; // required for 1(e)
 public:
-    static int count;
     MovingObject(std::string name, double x, double y, double vx, double vy, double ax, double ay) {
         // required for 1(a)
         this->name = name;
@@ -21,7 +21,7 @@ public:
         this->ax = ax;
         this->ay = ay;
         // required for 1(e)
-        MovingObject::count += 1;
+        MovingObject::i += 1;
     }
 
     void updatePosition(double t) {
@@ -37,10 +37,17 @@ public:
         // pass the instance's x, y and name to std::cout to print to screen
         std::cout << "Object " << name << " is at position (" << x << ", " << y << ")" << std::endl;
     }
+
+    static int count() {
+        // required for 1(e)
+        return i;
+    }
 };
 
 // initialise static variable count at 0
-int MovingObject::count = 0;
+// take note that static variables cannot be initialised inside
+// the class body
+int MovingObject::i = 0;
 
 int main(int argc, char* argv[]) {
     // required for 1(d)
@@ -52,5 +59,12 @@ int main(int argc, char* argv[]) {
         b.printStatus();
     }
     // required for 1(e)
-    std::cout << "Total number of Moving Objects: " << MovingObject::count << std::endl;
+    std::cout << "Total number of Moving Objects: " << MovingObject::count() << std::endl;
 }
+
+/*
+
+2(a)
+
+ */
+
