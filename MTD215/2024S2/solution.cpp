@@ -139,28 +139,64 @@ ComplexNumber operator+(ComplexNumber& a, ComplexNumber& b) {
 
 The coding blocks of a SDL event driven program are:
 
-1) SDL Initialisation
+1) Initialisation
 
 This block initialises the various visual components such as the Window, Renderer.
 
-2) Initial Render
+2) Main Loop
 
-This setups the initial visualisation
+Each loop of the Main Loop block performs the following in sequence:
+* Event Listening Loop
+* Update
+* Render
+* Delay
 
-3) Event Listener and Event Handler
+The Event Listening Loop polls the event queue and assign a handler for each event. A handler 
+may update the state of an entity (e.g. pressing an arrow key moves a Player sprite), pauses 
+the animation or terminate thes Main Loop. The Event Listening Loop terminates when the event 
+queue is exhusted.
 
-This is an event loop that polls the system for events like mouse down, key down,
-exit event and assigns an event handler to process these events. The event handlers
-may respond in many ways, such as pausing an animation, or updating how a button is
-displayed after it is clicked.
+During the Update phase, each entity may have default update action such as updating its 
+coordinates for a moving sprite.
 
+During the render phase, first the entire canvas is cleared. Then each entity is rendered.
+
+The Delay block specifies how long each Main Loop will sleep. 16ms of sleep corresponds to
+60 frames per second of animation.
 
 4) Close
 
 This block of code is responsible for freeing up resources held by the SDL components.
 It is usually invoked when the program exits.
 
+*/
 
+// 2(d)
+
+// Step 1: import the SDL2_image extension
+#include <SDL2_image/SDL_image.h>
+
+// Step 2: initialise the SDL2_image extension. 
+//IMG_INIT_PNG is the flag for loading PNG images.
+int img_status = IMG_Init(IMG_INIT_PNG);
+
+// Step 3: Check if initialisation was successful
+if(img_status != IMG_INIT_PNG) {
+    std::cerr << "SDL2_image error: " << IMG_GetError() << std::endl;
+    SDL_Quit();
+}
+
+// Step 4: Load the image
+SDL_Texture* image = IMG_LoadTexture(gRenderer, "path/to/image.png");
+
+// Step 5: Check if image was loaded
+if(image = nullptr) {
+    std::cerr << "SDL2_image error: " << IMG_GetError() << std::endl;
+    SDL_Quit()
+}
+
+ /*
+ 
  3(a)
 
  07: Default Constructor
