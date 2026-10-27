@@ -168,14 +168,13 @@ def q10():
     
     # tally game result
     min_total = None
-    total = {}
     for p in players:
         # print result of each player
         chest1 = boxOpened[p][0]
         chest2 = boxOpened[p][1]
         total = chest1 + chest2
         print(f"{p}: Chest1 = {chest1}, Chest2 = {chest2}, Total = {total}")
-        
+
         # track the lowest total
         if min_total is None:
             min_total = total 
