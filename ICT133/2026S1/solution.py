@@ -76,6 +76,9 @@ Q8
 """
 
 def mergeDictionary(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
+    """
+    Solution following algorithm guide provided
+    """
     # initialise empty dictionary result
     result = {}
     # iterate all key-value pairs in dict1
@@ -91,4 +94,16 @@ def mergeDictionary(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
             # otherwise, insert it into result with its value
             result[key] = value
     #return the result dictionary
+    return result
+
+def mergeDictionary2(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
+    """
+    Alternative implementation for mergeDictionary() not following the algorithm guide
+    """
+    result = {}
+    for key, value in dict1.items():
+        result[key] = value + dict2.get(key, 0)
+    for key, value in dict2.items():
+        if key not in result:
+            result[key] = value 
     return result
