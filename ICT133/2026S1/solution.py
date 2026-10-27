@@ -37,3 +37,27 @@ hence, mydict["c"] = 1 + 3 = 4
 
 A.
 """
+
+def q6():
+    # keep prompting for charger type until user enters valid charger
+    charger = ""
+    while not (charger == "AC" or charger == "DC"):
+        charger = input("Enter charger type (AC/DC): ").strip().upper()
+    # prompt for energy delivered
+    kWh = -1
+    while kWh <= 0:
+        kWh = float(input("Enter energy delivered (kWh): "))
+
+    if charger == "DC":
+        # calculate charges for DC
+        amount = kWh * 0.68 
+        print(f"Please pay ${amount:.2f}")
+    else:
+        # calculate charges for DC
+        if kWh >= 50:
+            amount = 20*0.56 + 30*0.54 + (kWh - 50)*0.52
+        elif kWh >= 20:
+            amount = 20*0.56 + (kWh - 20)*0.54
+        else:
+            amount = kWh * 0,56
+        print(f"Please pay ${amount:.2f}")
