@@ -173,10 +173,10 @@ def openMysteryBox() -> int:
             print(f"Box contains: Bomb... Total now: {coins}")
         else:
             if coins + new_coins > 25:
-                print(f"Box contains {coins}... Discarded.")
+                print(f"Box contains {new_coins}... Discarded.")
             else:
                 coins += new_coins
-                print(f"Box contains {coins}... Total now: {coins}")
+                print(f"Box contains {new_coins}... Total now: {coins}")
     print("Treasure chest full!")
     return boxes
 
