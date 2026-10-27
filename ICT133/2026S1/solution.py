@@ -70,3 +70,25 @@ def q7():
                 if not c.isspace():
                     count += 1
     print(f"Total character count: {count}")
+
+"""
+Q8
+"""
+
+def mergeDictionary(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
+    # initialise empty dictionary result
+    result = {}
+    # iterate all key-value pairs in dict1
+    for key, value in dict1.items():
+        # add each key, value to result
+        result[key] = value
+    # iterate all key-value oairs in dict2
+    for key, value in dict2.items():
+        if key in result:
+            # if the key already exists in the result, add the value to the existing one
+            result[key] += value 
+        else:
+            # otherwise, insert it into result with its value
+            result[key] = value
+    #return the result dictionary
+    return result
