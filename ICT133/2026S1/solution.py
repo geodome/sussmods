@@ -92,7 +92,7 @@ def q6():
         elif kWh >= 20:
             amount = 20*0.56 + (kWh - 20)*0.54
         else:
-            amount = kWh * 0,56
+            amount = kWh * 0.56
         print(f"Please pay ${amount:.2f}")
 
 def q7():
