@@ -61,3 +61,12 @@ def q6():
         else:
             amount = kWh * 0,56
         print(f"Please pay ${amount:.2f}")
+
+def q7():
+    count = 0
+    with open("input.txt") as f:
+        for line in f:
+            for c in line:
+                if not c.isspace():
+                    count += 1
+    print(f"Total character count: {count}")
