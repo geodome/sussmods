@@ -150,3 +150,40 @@ def openMysteryBox() -> int:
 """
 Q10
 """
+
+def q10():
+
+    # list player names
+    players = ["Lara", "Nico", "Zane"]
+
+    # initialise dictionary boxOpened
+    boxOpened = {}
+    for p in players:
+        boxOpened[p]  = [0,0]
+    
+    # chest progression
+    for p in players:
+        for i in range(2):
+            boxOpened[p][i] = openMysteryBox()
+    
+    # tally game result
+    min_total = None
+    total = {}
+    for p in players:
+        # print result of each player
+        chest1 = boxOpened[p][0]
+        chest2 = boxOpened[p][1]
+        total = chest1 + chest2
+        print(f"{p}: Chest1 = {chest1}, Chest2 = {chest2}, Total = {total}")
+        
+        # track the lowest total
+        if min_total is None:
+            min_total = total 
+        else:
+            if total < min_total:
+                min_total = total 
+
+    # declare winner
+    for p in players:
+        if min_total == boxOpened[p][0] + boxOpened[p][1]:
+            print(f"Winner: {p} with {min_total} boxes")
