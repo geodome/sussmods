@@ -107,3 +107,34 @@ def mergeDictionary2(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
         if key not in result:
             result[key] = value 
     return result
+
+"""
+Question 9
+"""
+
+import random 
+
+def open_box() -> int:
+    ncoins = random.randint(0,6)
+    if ncoins == 0:
+        return -1
+    return ncoins 
+
+def openMysteryBox() -> int:
+    coins = 0
+    rounds = 0
+    print(f"Gold coins: {coins}")
+    while coins < 25:
+        rounds += 1
+        new_coins = open_box()
+        if new_coins == -1:
+            coins = 0
+            print(f"Box contains: Bomb... Total now: {coins}")
+        else:
+            if coins + new_coins > 25:
+                print(f"Box contains {coins}... Discarded.")
+            else:
+                coins += new_coins
+                print(f"Box contains {coins}... Total now: {coins}")
+    print("Treasure chest full!")
+    return rounds
