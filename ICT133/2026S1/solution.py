@@ -216,6 +216,11 @@ def q10():
                 min_total = total 
 
     # declare winner
+    winners = []
     for p in players:
         if min_total == boxOpened[p][0] + boxOpened[p][1]:
-            print(f"Winner: {p} with {min_total} boxes")
+            winners.append(p)
+    if len(winners) == 1:
+        print(f"Winner: {p} with {min_total} boxes")
+    else:
+        print(f"Draw between: {', '.join(winners)} with {min_total} boxes each")
