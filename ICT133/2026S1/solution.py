@@ -110,6 +110,14 @@ def mergeDictionary2(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
 
 """
 Question 9
+
+There is a typo in the functional requirement.
+
+It states to use random.randint(-1,6) tp simulate the number of gold coins
+
+but random.randint(-1,6) will return 0 which is not a valid number of coins.
+
+Instead, use random.randint(0,6) to simulate the number of coins.
 """
 
 import random 
@@ -122,11 +130,11 @@ def open_box() -> int:
 
 def openMysteryBox() -> int:
     coins = 0
-    rounds = 0
+    boxes = 0
     print(f"Gold coins: {coins}")
     while coins < 25:
-        rounds += 1
         new_coins = open_box()
+        boxes += 1
         if new_coins == -1:
             coins = 0
             print(f"Box contains: Bomb... Total now: {coins}")
@@ -137,4 +145,8 @@ def openMysteryBox() -> int:
                 coins += new_coins
                 print(f"Box contains {coins}... Total now: {coins}")
     print("Treasure chest full!")
-    return rounds
+    return boxes
+
+"""
+Q10
+"""
