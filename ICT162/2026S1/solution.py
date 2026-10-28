@@ -199,7 +199,7 @@ class SmartRoom:
             return f"Smart Room '{self._name}' contains no devices"
         else:
             device_list = ", ".join([device.model for device in self._devices])
-            return f"Smart Room '{self._name}' contains: {device_list}"
+            return f"Smart Room '{self._name}' contains devices: {device_list}"
 
 """
 12b
@@ -257,7 +257,8 @@ class SmartRoomGUI:
         self._cost_label.pack(pady=10)
 
         # line 32, 33
-        self._room_desc_label = tk.Label(self._root, text=self._room.toString(), font=("Inter",24))
+        self._room_desc_label = tk.Label(self._root, text=self._room.toString(), font=("Inter",12), wraplength=400)
+        self._room_desc_label.pack(pady=10)
         self._root.mainloop()
     
     def computeCost(self):
@@ -272,3 +273,4 @@ class SmartRoomGUI:
             else:
                 cost = self._room.totalMonthlyCost(hours)
                 self._cost_display_var.set(f"Total Cost: ${cost:.2f}")
+
