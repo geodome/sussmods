@@ -144,21 +144,15 @@ def mergeDictionary2(dict1:dict[str,int], dict2:dict[str,int]) -> dict[str,int]:
 """
 Question 9
 
-There is a typo in the functional requirement.
-
-It states to use random.randint(-1,6) tp simulate the number of gold coins
-
-but random.randint(-1,6) will return 0 which is not a valid number of coins.
-
-Instead, use random.randint(0,6) to simulate the number of coins.
 """
 
 import random 
 
 def open_box() -> int:
-    ncoins = random.randint(0,6)
-    if ncoins == 0:
-        return -1
+    ncoins = 0
+    while ncoins == 0:
+        # functional requirement to use random.randint)-1,6) but 0 is not valid number of coins
+        ncoins = random.randint(-1,6)
     return ncoins 
 
 def openMysteryBox() -> int:
