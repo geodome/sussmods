@@ -174,7 +174,7 @@ It is usually invoked when the program exits.
 // 2(d)
 
 // Step 1: import the SDL2_image extension
-#include <SDL2_image/SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 // Step 2: initialise the SDL2_image extension. 
 //IMG_INIT_PNG is the flag for loading PNG images.
@@ -243,7 +243,7 @@ void draw_rect2(SDL_Renderer* renderer, SDL_Rect* rect2) {
 }
 
 // 4(c)
-void draw_rect1(SDL_Render* renderer, SD:+Rect* rect1, int r, int g, int b) {
+void draw_rect1(SDL_Render* renderer, SDL_Rect* rect1, int r, int g, int b) {
     // set color
     SDL_SetRenderDrawColor(renderer, r, g, b, 0xFF);
     // draw rect1
