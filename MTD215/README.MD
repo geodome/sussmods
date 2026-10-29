@@ -15,7 +15,7 @@ I will be running Online Past Year Paper Review on
 * MTH109: 8-10pm, Sat, 14 Nov 2026
 * ICT162: 8-10pm, Sun, 15 Nov 2026
 
-If you are interested, DM me for rates on Telegram at [@geodome](t.me/geodome)
+If you are interested, DM me for rates on Telegram at [@geodome](https://t.me/geodome)
 
 ## Synopsis
 The course provides greater programming exposure to multimedia students who have completed ICT131, 
