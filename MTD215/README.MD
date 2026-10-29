@@ -10,7 +10,7 @@ I will be running Online Past Year Paper Review on
 
 * MTD215: 8-10pm, Thurs, 5 Nov 2026
 * ICT133: 8-10pm, Fri, 6 Nov 2026
-* MTH210: 8-10om, Sun, 8 Nov 2026
+* MTH210: 8-10pm, Sun, 8 Nov 2026
 * MTH105: 8-10pm, Mon, 9 Nov 2026
 * MTH109: 8-10pm, Sat, 14 Nov 2026
 * ICT162: 8-10pm, Sun, 15 Nov 2026
