@@ -40,7 +40,9 @@ struct Person {
 };
 
 int main() {
+    // This creates an array of 10  person whereby the values of each struct is not determined.
     Person persons[10];
+    // replaced the last person with "John Tan"
     persons[9] = {"John Tan", 25.12, 34, true};
 }
 
