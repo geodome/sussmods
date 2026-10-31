@@ -83,7 +83,6 @@ int main() {
         {"Israel Tan", 25.12, 34, true},
         {"John Tan", 25.12, 34, true}
     };
-    persons[9] = Person("John Tan", 25.12, 34, true);
 }
 
 // question 2
