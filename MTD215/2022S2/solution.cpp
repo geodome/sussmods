@@ -56,11 +56,8 @@ class Person {
         int age;
         bool isSingaporean;
     public:
-        Person(); // array requires default constructor
         Person(string, float, int, bool);
 };
-
-Person::Person() {}
 
 Person::Person(string name, float bmi, int age, bool isSingaporean) {
     this->name = name;
@@ -70,7 +67,20 @@ Person::Person(string name, float bmi, int age, bool isSingaporean) {
 }
 
 int main() {
-    Person persons[10];
+    // Person class must be initialised with a parameterised constructor
+    // We are allowwd to add variables, so add 9 persons + "John Tan" to the array.
+    Person persons[10] = {
+        {"Abel Tan", 25.12, 34, true},
+        {"Betty Tan", 25.12, 34, true},
+        {"Caddy Tan", 25.12, 34, true},
+        {"Deli Tan", 25.12, 34, true},
+        {"Elton Tan", 25.12, 34, true},
+        {"Felicia Tan", 25.12, 34, true},
+        {"George Tan", 25.12, 34, true},
+        {"Haochen Tan", 25.12, 34, true},
+        {"Israel Tan", 25.12, 34, true},
+        {"John Tan", 25.12, 34, true}
+    };
     persons[9] = Person("John Tan", 25.12, 34, true);
 }
 
