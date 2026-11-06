@@ -74,6 +74,7 @@ class Student {
 private:
     int id;
     string name, status;
+    bool availability;
 public:
     Student(int id, string name, string status)
     int getID();
@@ -85,43 +86,86 @@ method.
 
 Inheritance
 
-A child class may inhert properties or behaviors from its parent class. However, inherited
-variables or methods can be overrided.
+A child class may inherit properties or behaviors from its parent class. Inheritance represents the
+is-a relationship between the parent and child. However, inherited variables or methods can be overrided.
 
-class Rectangle {
+class DeliveryPartner {
 private:
-    int length, width;
+    string bric, driver_license;
 public:
-    Rectangle(int l, int w) {
-        length = l;
-        width = w;
+    DeliveryPartner(string nric, string license) {
+        this->nric = nric;
+        this->driver_license = license;
+        this->availability = false;
     }
-    int Area() {
-        return length*width;
+    string get_nric() {
+        return this0>nric;
     }
-    int Perimenter {
-        return 2*(length + width);
+    string get_license() {
+        return this->driver_licnese;
+    }
+    void add_job(string job_id) {
+        // some implementation
+    }
+    void complete_job(string job_id) {
+        // some implementation
+    }
+    float get_cpf() {
+        return 0;
+    }
+    bool is_available() {
+        // some implementation 
+        // ...
+        return this->availability;
+    }
+    void clock_in() {
+        // some implementation..
+        this->availability = true;
+    }
+    voiid clock_out() {
+        // some implementation;
+        this->availability = false;
     }
 };
 
-class Square: public Rectangle {
-private:
-    int side;
+class FullTimeDeliveryParnter: public DeliveryPartner {
 public:
-    Square(int s):Rectangle(s,s) {
-        side = s;
+    FullTimeDeliveryPartner(string nric, string license): DeliveryPartner(nric, driver) {}
+    float get_cpf() {
+        // some implementation
+        // ....
+        return cpf;
     }
-}
+    void apply_leave(const Date& start, const Date& end) {
+        // some implementation
+    }
+};
 
-The Square class inherits from the Rectangle class. The Square::Area() and Square::Perimeter()
-methods may be called.
+class PartTimeDeliveryPartner: public Delivery Partner {
+public:
+    PartimeDeliveryPartner(string nric, string license): DeliveryPartner(nric, driver) {}
+
+};
+
+Both FullTimeDeliveryPartner and PartTimeDeliveryPartner are child classes of DeliveryPartner. THey inaherit all the methods of DeliveryPartner,
+including the getters get_licnse() and get_nric(). fullTimeDeliveryPartner;:get_nric() invokes the DeliveryPartner::get_nric()
+
+The nric and driver-license are private variables of the DeliveryParnter class, so the onnly way to access them is via the getter methods. 
+Observe the parent class is initialised in the constructuor of the child classes FullTimeDeliver
+
+FullTimeDeliveryPartner overrides the DeliveryPartner::get_cpf() implementation with its own implementation. Also FulLTimeDelveryPartner can apply leaves.
+so it has additional method to support that, which is not available in the parent class.
 
 Polymorphism
 
-Polymorphism means many forms. This is achieved by function overloading and operator overloading in C++.
+Polymorphism means many forms. 
+
+Static polymorphism (aka compile-time polymorphism) is achieved by function overloading and operator overloading in C++.
+
+Runtime polymorphism is achieved
 
 class ComplexNumber {
-    friend ComplexNumber operator+(ComplexNumber&, ComplexNumber&);
+    friend std::ostream& operator<<(std::ostream&, const ComplexNumber&);
 private:
     int real, img;
 public:
@@ -129,11 +173,71 @@ public:
         this->real = r;
         this->img = i;
     }
+    ComplexNumber operator+(const ComplexNumber& other) {
+        return {this->real + other->real, this->img + other->img};
+    }
 }
 
-ComplexNumber operator+(ComplexNumber& a, ComplexNumber& b) {
+std::ostream& operator+(ComplexNumber& a, ComplexNumber& b) {
     return ComplexNumber(a.real+b.real, a.img+b.img);
 }
+
+In this example, we overload the insertion operator << to perform a std::cout with the ComplexNumber class.
+
+Another type of polymorphism is run-time polymorphism with abstract base classess (ABC).
+
+An ABC is a class with virtual methodw. During method resolution, C++ will invoke the most latest implementation
+of the virtual method instead of defaulting to the virtuak method that was originally declared in the definition of 
+the ABC parent.
+
+class Shaoe {
+public:
+    Shape() {}
+    virtual ~Shaoe() {}
+    virtual double Area() {
+        return 0;
+    }
+ };
+
+class Circle: public Shape {
+private:
+    double r
+ public:
+    Circle(double radius): Shape() {
+        r = radius;
+    }
+    double Area() override {
+        return 3.14*r*r;
+    }
+
+ };
+
+class Square: public Shape {
+private:
+    double s;
+ public:
+    Circle(double side): Shape() {
+        s = side;
+    }
+    double Area() override {
+        return s*s;
+    }
+
+ };
+
+ #define SIZE 2
+ int main(int argc, char* argv{}) {
+    Shape* shapes[SIZE] = {new Circle(1), new Squar(2)};
+    // demostrate dynamic pokymorphism by sharing different classes invoke different implementation of the same method name
+    for(int i = 0 i < SIZE; i++) {
+        std::cout << "Area of Shape " << i << " is " << shapes[i]->Area() << "\n";
+    }
+    // memory ckeanup
+    for(int i = 0 i < SIZE; i++) {
+        delete shapes[i];
+    }
+
+ }
     
 2(b)
 
