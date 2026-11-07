@@ -370,11 +370,15 @@ int main() {
 // SDL2 requires this version of the main() function. It won't work with the int main() version.
 int main(int argc, char* argv[]) {
 
+    // 4(b) missing variables to store rectangle dimensions after prompting user
     int width, height;
     get_rectangle_data(&width, &height);
+
+    // 4(b) missing variable: required for draw_outer_rect() and draw_inner_rect())
     SDL_Rect outer{(WIDTH - width)/2, (HEIGHT - height)/2, width, height};
     SDL_Rect inner{(WIDTH - width)/2 + GAP, (HEIGHT - height)/2 + GAP, width - 2*GAP, height-2*GAP};
 
+    // added missing variables r, g, b for color cycling
     int r, g, b;
     r = g = b = 255;
 
@@ -386,6 +390,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    // 4(b) Missing variable gWindow for the SDL Window
     // SDL_CreateWindow() returns null pointer if error
     // the flags parameter is set 0, so no window flag is turned on.
     SDL_Window* gWindow = SDL_CreateWindow("July 2025 Q4", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, 0);
@@ -394,6 +399,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    // 4(b) Missing variable gRenderer for the SDL Renderer associated to gWindow
+    // required to use with draw_inner_rect()
     SDL_Renderer* gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
     if(gRenderer == nullptr) {
         std::cerr << SDL_GetError() << "\n";
@@ -419,16 +426,21 @@ int main(int argc, char* argv[]) {
 
         // update phase
         // The update phase is empty because there are no graphical objects to update
+        // cycle the rgb colors
         cycle_rgb_color(&r, &g, &b);
 
         // render phase
         // fill the window with white color
         // when rect is set as nullptr, SDL_FilLRect() updates the entire surface instead of the rectangular region defined by rect
 
+        // Render white background
         SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
         SDL_RenderFillRect(gRenderer, nullptr);
+        // Draw outer rectangle
         draw_outer_rect(gRenderer, &outer);
+        // Draw inner rectangle
         draw_inner_rect(gRenderer, &inner, r, g, b);
+        // Update the Window
         SDL_RenderPresent(gRenderer);
         
 
