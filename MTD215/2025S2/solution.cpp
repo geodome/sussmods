@@ -375,8 +375,10 @@ int main(int argc, char* argv[]) {
     get_rectangle_data(&width, &height);
 
     // 4(b) missing variable: required for draw_outer_rect() and draw_inner_rect())
-    SDL_Rect outer{(WIDTH - width)/2, (HEIGHT - height)/2, width, height};
-    SDL_Rect inner{(WIDTH - width)/2 + GAP, (HEIGHT - height)/2 + GAP, width - 2*GAP, height-2*GAP};
+    int x = (WIDTH - width)/2;
+    int y = (HEIGHT - height)/2,
+    SDL_Rect outer{x, y, width, height};
+    SDL_Rect inner{(x + GAP, y + GAP, width - 2*GAP, height-2*GAP};
 
     // added missing variables r, g, b for color cycling
     int r, g, b;
@@ -436,7 +438,7 @@ int main(int argc, char* argv[]) {
         // Render white background
         SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
         SDL_RenderFillRect(gRenderer, nullptr);
-        // Draw outer rectangle
+        // Draw outer green rectangle
         draw_outer_rect(gRenderer, &outer);
         // Draw inner rectangle
         draw_inner_rect(gRenderer, &inner, r, g, b);
@@ -456,3 +458,15 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+/*
+4(a) For explaination, see the comments in main()
+
+4(c)
+Program draws a rectangle on a white background. The rectangle has a green border 
+while the color inside the rectangle transistions from black to white in a cycle.
+
+4(d) 
+1) Add key down handler for WASD to move the ractangle
+2) Apply color cycling wffect to the rectangle border
+*/
