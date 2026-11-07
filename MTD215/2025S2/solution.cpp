@@ -380,7 +380,7 @@ int main(int argc, char* argv[]) {
     SDL_Rect outer{x, y, width, height};
     SDL_Rect inner{(x + GAP, y + GAP, width - 2*GAP, height-2*GAP};
 
-    // added missing variables r, g, b for color cycling
+    // 4(b) added missing variables r, g, b for color cycling
     int r, g, b;
     r = g = b = 255;
 
@@ -409,8 +409,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // The main loop consists of
-    // * event loop
+    // The main loop
 
     bool quit = false;
     SDL_Event e;
@@ -436,8 +435,7 @@ int main(int argc, char* argv[]) {
         // when rect is set as nullptr, SDL_FilLRect() updates the entire surface instead of the rectangular region defined by rect
 
         // Render white background
-        SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
-        SDL_RenderFillRect(gRenderer, nullptr);
+        draw_inner_rect(gRenderer, nullptr, 0xff, 0xff, 0xff);
         // Draw outer green rectangle
         draw_outer_rect(gRenderer, &outer);
         // Draw inner rectangle
