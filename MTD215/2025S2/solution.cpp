@@ -367,3 +367,80 @@ int main() {
 
 // Q4
 
+// SDL2 requires this version of the main() function. It won't work with the int main() version.
+int main(int argc, char* argv[]) {
+
+    int width, height;
+    get_rectangle_data(&width, &height);
+    SDL_Rect outer{(WIDTH - width)/2, (HEIGHT - height)/2, width, height};
+    SDL_Rect inner{(WIDTH - width)/2 + GAP, (HEIGHT - height)/2 + GAP, width - 2*GAP, height-2*GAP};
+
+    int r, g, b;
+    r = g = b = 255;
+
+    // First initialise SDL2 subsystems
+    if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+        // SD_Init() returns 0 if successful
+        std::cerr << SDL_GetError() << "\n";
+        // By convention, main() returns non-zero value if error happens
+        return 1;
+    }
+
+    // SDL_CreateWindow() returns null pointer if error
+    // the flags parameter is set 0, so no window flag is turned on.
+    SDL_Window* gWindow = SDL_CreateWindow("July 2025 Q4", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, 0);
+    if(gWindow == nullptr) {
+        std::cerr << SDL_GetError() << "\n";
+        return 1;
+    }
+
+    SDL_Renderer* gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
+    if(gRenderer == nullptr) {
+        std::cerr << SDL_GetError() << "\n";
+        return 1;
+    }
+
+    // The main loop consists of
+    // * event loop
+
+    bool quit = false;
+    SDL_Event e;
+    while(!quit) {
+        // The event loop polls the event queue for GUI events.
+        // responsible for assigning event handlers
+        while(SDL_PollEvent(&e)) {
+            switch(e.type) {
+                case SDL_QUIT:
+                quit = true;
+                std::cout << "quit event triggered\n";
+                break;
+            }
+        }
+
+        // update phase
+        // The update phase is empty because there are no graphical objects to update
+        cycle_rgb_color(&r, &g, &b);
+
+        // render phase
+        // fill the window with white color
+        // when rect is set as nullptr, SDL_FilLRect() updates the entire surface instead of the rectangular region defined by rect
+
+        SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
+        SDL_RenderFillRect(gRenderer, nullptr);
+        draw_outer_rect(gRenderer, &outer);
+        draw_inner_rect(gRenderer, &inner, r, g, b);
+        SDL_RenderPresent(gRenderer);
+        
+
+        // Sleep phase
+        // This determines the refresh rate
+        // For refresh rate of 60fps, 1000ms/60fps = 17ms per frame
+        SDL_Delay(17);
+    }
+
+    // Begin cleanup
+    SDL_DestroyRenderer(gRenderer);
+    SDL_DestroyWindow(gWindow);
+
+    return 0;
+}
