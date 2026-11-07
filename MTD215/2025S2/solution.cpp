@@ -375,6 +375,7 @@ int main(int argc, char* argv[]) {
     get_rectangle_data(&width, &height);
 
     // 4(b) missing variable: required for draw_outer_rect() and draw_inner_rect())
+    // position the rectangle at the center of the window
     int x = (WIDTH - width)/2;
     int y = (HEIGHT - height)/2,
     SDL_Rect outer{x, y, width, height};
@@ -382,6 +383,7 @@ int main(int argc, char* argv[]) {
 
     // 4(b) added missing variables r, g, b for color cycling
     int r, g, b;
+    // set the initial color at white
     r = g = b = 255;
 
     // First initialise SDL2 subsystems
@@ -398,6 +400,7 @@ int main(int argc, char* argv[]) {
     SDL_Window* gWindow = SDL_CreateWindow("July 2025 Q4", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, 0);
     if(gWindow == nullptr) {
         std::cerr << SDL_GetError() << "\n";
+        SDL_Quit();
         return 1;
     }
 
@@ -406,6 +409,8 @@ int main(int argc, char* argv[]) {
     SDL_Renderer* gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
     if(gRenderer == nullptr) {
         std::cerr << SDL_GetError() << "\n";
+        SDL_DestroyWindow(gWindow);
+        SDL_Quit();
         return 1;
     }
 
@@ -466,5 +471,5 @@ while the color inside the rectangle transistions from black to white in a cycle
 
 4(d) 
 1) Add key down handler for WASD to move the ractangle
-2) Apply color cycling wffect to the rectangle border
+2) Apply color cycling wffect to the green rectangle border
 */
