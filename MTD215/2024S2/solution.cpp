@@ -190,7 +190,7 @@ An ABC is a class with virtual methodw. During method resolution, C++ will invok
 of the virtual method instead of defaulting to the virtuak method that was originally declared in the definition of 
 the ABC parent.
 
-class Shaoe {
+class Shape {
 public:
     Shape() {}
     virtual ~Shaoe() {}
@@ -275,7 +275,7 @@ It is usually invoked when the program exits.
 
 */
 
-// 2(d)
+// 2(c)
 
 // Step 1: import the SDL2_image extension
 #include <SDL2/SDL_image.h>
