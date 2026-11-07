@@ -324,10 +324,12 @@ public:
     Shape() { 
         // set width, height as 10
         width = height = 10; 
+        // increase counter
         Shape::count += 1;
     }
     // parameterised constructor that set width as w, height as h
     Shape(int w, int h): width(w). height(h) {
+        // increase counter
         Shape::count += 1;
     }
     // destructor
@@ -344,7 +346,7 @@ public:
         return width*height; 
     }
     // function to display static counter, required by 3b
-    static int display_count() {
+    static void display_count() {
         cout << "Shape::count = " << Shape::count << "\n";
     }
 private:
