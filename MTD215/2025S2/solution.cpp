@@ -335,7 +335,7 @@ public:
     // destructor
     ~Shape() {
         // print message to indicate object is destroyed, required by 3c
-        cout << "Shaoe(" << width << ", " << height << ") destroyed";
+        cout << "Shape(" << width << ", " << height << ") destroyed";
     }
     // overloading the multiplication (*) operator
     Shape operator*(const Shape& s) {
