@@ -114,7 +114,7 @@ public:
         return this->nric;
     }
     string get_license() {
-        return this->driver_licnese;
+        return this->driver_license;
     }
     void add_job(string job_id) {
         // some implementation
