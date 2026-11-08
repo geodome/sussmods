@@ -205,7 +205,7 @@ the ABC parent.
 class Shape {
 public:
     Shape() {}
-    virtual ~Shaoe() {}
+    virtual ~Shape() {}
     virtual double Area() {
         return 0;
     }
@@ -240,7 +240,7 @@ private:
  #define SIZE 2
  int main(int argc, char* argv{}) {
     Shape* shapes[SIZE] = {new Circle(1), new Squar(2)};
-    // demostrate dynamic pokymorphism by sharing different classes invoke different implementation of the same method name
+    // demostrate dynamic polymorphism by showing different classes invoke different implementation of the same method name
     for(int i = 0 i < SIZE; i++) {
         std::cout << "Area of Shape " << i << " is " << shapes[i]->Area() << "\n";
     }

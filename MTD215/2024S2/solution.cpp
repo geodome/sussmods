@@ -187,13 +187,13 @@ In this example, we overload the insertion operator << to perform a std::cout wi
 Another type of polymorphism is run-time polymorphism with abstract base classess (ABC).
 
 An ABC is a class with virtual method(s). During method resolution, C++ will invoke the most latest implementation
-of the virtual method instead of defaulting to the virtuak method that was originally declared in the definition of 
+of the virtual method instead of defaulting to the virtual method that was originally declared in the definition of 
 the ABC parent.
 
 class Shape {
 public:
     Shape() {}
-    virtual ~Shaoe() {}
+    virtual ~Shape() {}
     virtual double Area() {
         return 0;
     }
@@ -228,7 +228,7 @@ private:
  #define SIZE 2
  int main(int argc, char* argv{}) {
     Shape* shapes[SIZE] = {new Circle(1), new Squar(2)};
-    // demostrate dynamic pokymorphism by sharing different classes invoke different implementation of the same method name
+    // demostrate dynamic polymorphism by shawing different classes invoke different implementation of the same method name
     for(int i = 0 i < SIZE; i++) {
         std::cout << "Area of Shape " << i << " is " << shapes[i]->Area() << "\n";
     }
