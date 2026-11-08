@@ -148,10 +148,10 @@ public:
 };
 
 Both FullTimeDeliveryPartner and PartTimeDeliveryPartner are child classes of DeliveryPartner. THey inaherit all the methods of DeliveryPartner,
-including the getters get_licnse() and get_nric(). fullTimeDeliveryPartner;:get_nric() invokes the DeliveryPartner::get_nric()
+including the getters get_license() and get_nric(). fullTimeDeliveryPartner;:get_nric() invokes the DeliveryPartner::get_nric()
 
 The nric and driver-license are private variables of the DeliveryParnter class, so the onnly way to access them is via the getter methods. 
-Observe the parent class is initialised in the constructuor of the child classes FullTimeDeliver
+Observe the parent class is initialised in the constructuor of the child classes FullTimeDeliveryPartner and PartTimeDeliveryPartner,
 
 FullTimeDeliveryPartner overrides the DeliveryPartner::get_cpf() implementation with its own implementation. Also FulLTimeDelveryPartner can apply leaves.
 so it has additional method to support that, which is not available in the parent class.
