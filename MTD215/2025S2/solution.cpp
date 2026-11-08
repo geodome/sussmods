@@ -181,7 +181,7 @@ class ComplexNumber {
 private:
     int real, img;
 public:
-    CompelxNumber(int r, int i) {
+    ComplexNumber(int r, int i) {
         this->real = r;
         this->img = i;
     }
