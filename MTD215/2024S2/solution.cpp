@@ -122,7 +122,7 @@ public:
         // some implementation..
         this->availability = true;
     }
-    voiid clock_out() {
+    void clock_out() {
         // some implementation;
         this->availability = false;
     }
