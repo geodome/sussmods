@@ -472,10 +472,10 @@ while the color inside the rectangle transistions from black to white in a cycle
 4(d) 
 1) Add key down handler for WASD to move the ractangle
     - this is done by adding handlers for SDL_MOUSEDOWN event in the event loop.
-    - the up (w) key decreases y by 5, y = max(0, y - 5)
-    - the down (a) increases y by 5, y = min)y+5, HEIGHT-height)
-    - the left (d) key decreases x by 5, x = max(0, x - 5)
-    - the right (d) key uncreases x by 5, x = min(x+5, WIDTH-width)
+    - the up (w) key decreases y by 5, y = std::max(0, y - 5)
+    - the down (a) increases y by 5, y = std::min(y+5, HEIGHT-height)
+    - the left (d) key decreases x by 5, x = std::max(0, x - 5)
+    - the right (d) key uncreases x by 5, x = std::min(x+5, WIDTH-width)
     - then then update SDL_Rect outer and inner during the update phase in the main loop:
         - outer.x = x
         - outer.y = y
