@@ -186,7 +186,7 @@ In this example, we overload the insertion operator << to perform a std::cout wi
 
 Another type of polymorphism is run-time polymorphism with abstract base classess (ABC).
 
-An ABC is a class with virtual methodw. During method resolution, C++ will invoke the most latest implementation
+An ABC is a class with virtual method(s). During method resolution, C++ will invoke the most latest implementation
 of the virtual method instead of defaulting to the virtuak method that was originally declared in the definition of 
 the ABC parent.
 
