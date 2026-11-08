@@ -472,6 +472,15 @@ while the color inside the rectangle transistions from black to white in a cycle
 4(d) 
 1) Add key down handler for WASD to move the ractangle
     - this is done by adding handlers for SDL_MOUSEDOWN event in the event loop.
+    - the up (w) key decreases y by 5
+    - the down (s) increases y by 5
+    - the left (w) key decreases x by 5
+    - the right (d) key uncreases x by 5
+    - then then update SDL_Rect outer and inner during the update phase in the main loop:
+        - outer.x = x
+        - outer.y = y
+        - inner.x = x + GAP
+        - inner.y = y + GAP
 2) Apply color cycling wffect to the green rectangle border
     - this is done by using draw_inner_rect() to draw the outer rectangle instead of draw_outer_rect()
     - and assign another set of int r1, int g1, int b1 to represent the colour of the rectangle border
