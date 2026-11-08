@@ -463,7 +463,19 @@ int main(int argc, char* argv[]) {
 }
 
 /*
-4(a) For explaination, see the comments in main()
+4(a) The main() function is broken down into these parts:
+    1) prompt the user for the length and height of the rectangle,
+    2) calculate the coordinates of the outer and inner rectangles
+    3) initialise the SDL2 and core components (gWindow and gRenderer)
+    4) in the main loop
+        1) setup the event loop to listen for SDL_QUIT event which triggers the main loop to exit
+        2) in the render phase
+            1) clear the window
+            2) draw the outer rectangle
+            3) draw the inner rectangle
+    5) in the SDL quit phase
+        1) Free up all the SDL core comonents
+        2) Quit SDL subsystem
 
 4(c)
 Program draws a rectangle on a white background. The rectangle has a green border 
