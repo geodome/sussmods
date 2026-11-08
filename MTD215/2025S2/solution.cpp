@@ -458,7 +458,7 @@ int main(int argc, char* argv[]) {
     // Begin cleanup
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
-
+    SDL_Quit();
     return 0;
 }
 
