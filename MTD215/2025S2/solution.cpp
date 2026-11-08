@@ -481,7 +481,7 @@ while the color inside the rectangle transistions from black to white in a cycle
         - outer.y = y
         - inner.x = x + GAP
         - inner.y = y + GAP
-2) Apply color cycling wffect to the green rectangle border
+2) Apply color cycling effect to the green rectangle border
     - this is done by using draw_inner_rect() to draw the outer rectangle instead of draw_outer_rect()
     - and assign another set of int r1, int g1, int b1 to represent the colour of the rectangle border
     - then use cycle_rgb_color(&r1, &r2, &r3) to cycle the color during the update phase of the main loop
