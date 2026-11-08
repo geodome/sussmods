@@ -103,7 +103,7 @@ is-a relationship between the parent and child. However, inherited variables or 
 
 class DeliveryPartner {
 private:
-    string bric, driver_license;
+    string nric, driver_license;
 public:
     DeliveryPartner(string nric, string license) {
         this->nric = nric;
@@ -111,7 +111,7 @@ public:
         this->availability = false;
     }
     string get_nric() {
-        return this0>nric;
+        return this->nric;
     }
     string get_license() {
         return this->driver_licnese;
