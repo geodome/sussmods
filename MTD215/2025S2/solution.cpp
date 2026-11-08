@@ -470,7 +470,7 @@ Program draws a rectangle on a white background. The rectangle has a green borde
 while the color inside the rectangle transistions from black to white in a cycle.
 
 4(d) 
-1) Add key down handler for WASD to move the ractangle
+1) Add key down handler for WASD to move the rectangle
     - this is done by adding handlers for SDL_MOUSEDOWN event in the event loop.
     - the up (w) key decreases y by 5, y = std::max(0, y - 5)
     - the down (a) increases y by 5, y = std::min(y+5, HEIGHT-height)
