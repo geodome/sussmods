@@ -204,6 +204,9 @@ class SmartRoom:
 """
 12b
 
+Describe TWO (2) advantages of using object composition here rather than inheritance. 
+
+
 """
 
 def q12c():
