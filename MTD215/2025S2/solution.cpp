@@ -65,22 +65,22 @@ relevant would depend on the modelling context.
 For example, a Student entity within the context of a university can be sufficiently
 described with a name, student id and his student status (enrolled/deferred/graduated/discontinued).
 Within the academic context of a university, his other characteristics (e.g. height, weight, 
-blood pressure) are not relevant to the model and therefore excluded.
+blood pressure) are not relevant to the model and therefore excluded. */
 
 class Student {
 private:
     int id;
     string name, status;
 public:
-    Student(int id, string name, string status)
+    Student(int id, string name, string status);
 };
 
-Encapsulation
+/* Encapsulation
 
 Encapsulation works by hiding an object's internal state and processes and exposes public
 methods to interact with the object's internal states. In this way, it protects the internal
 state from accidental modification and also simplifies interaction with other components of
-the program as the programmer is not required to know internally how the public method works.
+the program as the programmer is not required to know internally how the public method works. */
 
 class Student {
 private:
@@ -96,10 +96,10 @@ In this example, the Student::id variable is protected by encapsulation. The pri
 prevents external program from changing it while its value may be retrieved via the Student::getID() 
 method.
 
-Inheritance
+/* Inheritance
 
 A child class may inherit properties or behaviors from its parent class. Inheritance represents the
-is-a relationship between the parent and child. However, inherited variables or methods can be overrided.
+is-a relationship between the parent and child. However, inherited variables or methods can be overrided.*/
 
 class DeliveryPartner {
 private:
@@ -153,13 +153,13 @@ public:
     }
 };
 
-class PartTimeDeliveryPartner: public Delivery Partner {
+class PartTimeDeliveryPartner: public DeliveryPartner {
 public:
     PartimeDeliveryPartner(string nric, string license): DeliveryPartner(nric, driver) {}
 
-};
+}; 
 
-Both FullTimeDeliveryPartner and PartTimeDeliveryPartner are child classes of DeliveryPartner. THey inaherit all the methods of DeliveryPartner,
+/* Both FullTimeDeliveryPartner and PartTimeDeliveryPartner are child classes of DeliveryPartner. THey inaherit all the methods of DeliveryPartner,
 including the getters get_license() and get_nric(). fullTimeDeliveryPartner;:get_nric() invokes the DeliveryPartner::get_nric()
 
 The nric and driver-license are private variables of the DeliveryParnter class, so the onnly way to access them is via the getter methods. 
@@ -174,7 +174,7 @@ Polymorphism means many forms.
 
 Static polymorphism (aka compile-time polymorphism) is achieved by function overloading and operator overloading in C++.
 
-Runtime polymorphism is achieved
+*/
 
 class ComplexNumber {
     friend std::ostream& operator<<(std::ostream&, const ComplexNumber&);
@@ -194,13 +194,13 @@ std::ostream& operator+(ComplexNumber& a, ComplexNumber& b) {
     return ComplexNumber(a.real+b.real, a.img+b.img);
 }
 
-In this example, we overload the insertion operator << to perform a std::cout with the ComplexNumber class.
+/* In this example, we overload the insertion operator << to perform a std::cout with the ComplexNumber class.
 
 Another type of polymorphism is run-time polymorphism with abstract base classess (ABC).
 
 An ABC is a class with virtual method(s). During method resolution, C++ will invoke the most latest implementation
 of the virtual method instead of defaulting to the virtuak method that was originally declared in the definition of 
-the ABC parent.
+the ABC parent. */
 
 class Shape {
 public:
